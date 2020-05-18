@@ -1,0 +1,38 @@
+`timescale 1ns / 1ns //(1)
+
+module test;         //(2)
+CPU1 top();          //(3)
+
+reg CK;              //(4)
+integer CK_num;      //(5)
+
+initial
+begin
+
+CK = 1'b0;           // Initialization of CK
+CK_num = 1;          //Initialization of CK_num
+`include "/home/student/s1260250/comp/kadai12/CPU1_run2/testfixture.include" //(6)
+                     // Initialization of Memory
+
+# 50 // Update of CK and CK_num //(7)
+# 50 CK = ~CK;
+for( CK_num = 2; CK_num <= 200; CK_num= CK_num +1)
+   begin
+     # 50 CK = ~CK;
+     # 50 CK = ~CK;
+   end
+
+$display("Simulation Results Start");
+$display("PC_out = %h",top.PC_out); //(8)
+$display("RF[r1] = %h",top.Registers.regfile[1]); //(9)
+$display("MEM['h00000000] = %h",Mem.cell['h00000000]); //(10)
+$display("S = MEM['h00005028] = %h", Mem.cell['h00005028]);
+$display("Simulation Results End");
+$finish;
+end
+
+endmodule
+
+module Mem ();       // (11)
+reg [31:0] cell [0:65535];
+endmodule
