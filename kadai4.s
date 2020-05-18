@@ -23,5 +23,6 @@ adder:
 	add $t7, $t7, $t7 # shift multiplicand
 	j loop
 loopend:
+	sw $t5, C
 exit:	j exit
 		
