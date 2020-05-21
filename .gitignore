@@ -4,5 +4,5 @@
 !*/
 # Allow my kadai files
 !kadai*
-!test
+!test*
 !.gitignore
