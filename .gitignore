@@ -1,0 +1,8 @@
+# Ignore everything
+*
+# But descend into directories
+!*/
+# Allow my kadai files
+!kadai*
+!test
+!.gitignore
