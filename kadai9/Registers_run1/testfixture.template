@@ -1,0 +1,31 @@
+
+`timescale 1ns / 1ns
+
+module test;
+
+
+
+reg  RegWrite;
+
+wire [31:0]  ReadData1;
+wire [31:0]  ReadData2;
+
+reg [4:0]  ReadRegster2;
+reg [31:0]  WriteData;
+reg [4:0]  ReadRegster1;
+reg [4:0]  WriteRegster;
+
+
+
+Registers top(ReadRegster1, ReadRegster2, WriteData, RegWrite, 
+     WriteRegster, ReadData1, ReadData2); 
+ 
+
+`ifdef verilog
+
+ //please enter any additional verilog stimulus in the /home/student/s1260250/CadenceComparch2020/Registers_run1/testfixture.verilog file
+`include "/home/student/s1260250/CadenceComparch2020/Registers_run1/testfixture.verilog"
+
+`endif
+
+endmodule 

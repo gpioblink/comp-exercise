@@ -1,0 +1,38 @@
+
+// Verilog stimulus file.
+// Please do not create a module in this file.
+
+
+// Default verilog stimulus. 
+
+initial
+begin
+
+#100
+$display("Simulation Results Start");
+ALUOp = 2'b00;
+$display("Operation = %h", Operation);
+#100
+ALUOp = 2'b01;
+$display("Operation = %h", Operation);
+#100
+ALUOp = 2'b10;
+Funct = 6'b100000;
+$display("Operation = %h", Operation);
+#100
+Funct = 6'b100010;
+$display("Operation = %h", Operation);
+#100
+Funct = 6'b100100;
+$display("Operation = %h", Operation);
+#100
+Funct = 6'b100101;
+$display("Operation = %h", Operation);
+#100
+Funct = 6'b101010;
+$display("Operation = %h", Operation);
+#100
+
+$display("Simulation Results End");
+$finish;
+end

@@ -1,0 +1,29 @@
+reg CK;
+
+initial
+begin
+
+CK = 1'b0;           // Initialization of CK
+
+#100
+$display("Simulation Results Start");
+WriteData = 32'b00000001001001100000001001010000;
+WriteRegster = 5'b00001;
+RegWrite= 1'b1;
+#100
+WriteData = 32'b00000000000000000010000000100000;
+WriteRegster = 5'b00010;
+RegWrite= 1'b1;
+#100
+ReadRegster1 = 5'b00001;
+ReadRegster2 = 5'b00010;
+RegWrite= 1'b0;
+$display("ReadData1 = %h", ReadData1);
+$display("ReadData2 = %h", ReadData2);
+#100
+
+$display("Simulation Results End");
+$finish;
+end
+
+always #50 CK = ~CK;//(1)

@@ -1,0 +1,28 @@
+
+`timescale 1ns / 1ns
+
+module test;
+
+
+wire  Zero;
+
+
+wire [31:0]  ALUresult;
+
+reg [3:0]  ALUoperation;
+reg [31:0]  B;
+reg [31:0]  A;
+
+
+
+testALU top(ALUresult, Zero, A, ALUoperation, B); 
+ 
+
+`ifdef verilog
+
+ //please enter any additional verilog stimulus in the /home/student/s1260250/CadenceComparch2020/testALU_run1/testfixture.verilog file
+`include "/home/student/s1260250/CadenceComparch2020/testALU_run1/testfixture.verilog"
+
+`endif
+
+endmodule 

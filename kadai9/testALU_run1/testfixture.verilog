@@ -1,0 +1,65 @@
+
+// Verilog stimulus file.
+// Please do not create a module in this file.
+
+
+// Default verilog stimulus. 
+
+initial
+begin
+
+#100
+$display("Simulation Results Start"); // (6)
+A = 32'b00000001001001100000001001010000;
+B = 32'b00000000000000000010000000100000;
+ALUoperation= 4'b0000;
+$display("Zero = %h", Zero);
+$display("ALUResult = %h", ALUresult);
+#100
+A = 32'b00000001001001100000001001010000;
+B = 32'b00000000000000000010000000100000;
+ALUoperation = 4'b0001;
+$display("Zero = %h", Zero);
+$display("ALUResult = %h", ALUresult);
+#100
+A = 32'b00000001001001100000001001010000;
+B = 32'b00000000000000000010000000100000;
+ALUoperation= 4'b0010;
+$display("Zero = %h", Zero);
+$display("ALUResult = %h", ALUresult);
+#100
+A = 32'b00000001001001100000001001010000;
+B = 32'b00000000000000000010000000100000;
+ALUoperation= 4'b0110;
+$display("Zero = %h", Zero);
+$display("ALUResult = %h", ALUresult);
+#100
+A = 32'b00000001001001100000001001010000;
+B = 32'b00000001001001100000001001010000;
+ALUoperation= 4'b0110;
+$display("Zero = %h", Zero);
+$display("ALUResult = %h", ALUresult);
+#100
+A = 32'b00000001001001100000001001010000;
+B = 32'b00000000000000000010000000100000;
+ALUoperation= 4'b0111;
+$display("Zero = %h", Zero);
+$display("ALUResult = %h", ALUresult);
+#100
+A = 32'b00000000000000000010000000100000;
+B = 32'b00000001001001100000001001010000;
+ALUoperation= 4'b0111;
+$display("Zero = %h", Zero);
+$display("ALUResult = %h", ALUresult);
+#100
+A = 32'b00000001001001100000001001010000;
+B = 32'b00000000000000000010000000100000;
+ALUoperation= 4'b1100;
+$display("Zero = %h", Zero);
+$display("ALUResult = %h", ALUresult);
+#100
+
+$display("Simulation Results End");
+$finish;
+end
+
