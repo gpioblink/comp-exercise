@@ -22,7 +22,7 @@ main:	or	$t0, $0, $0 # i
 	lw	$t5, ADDRESS_B
 
 loop:	# check i != n and increment
-	beq	$t0, $t1, loopend
+	beq	$t0, $t1, exit
 	add	$t0, $t0, $t2
 	# load value and forward pointer a
 	lw	$t6, 0($t3)
