@@ -31,4 +31,4 @@ loop:	# check i != n and increment
 	sw	$t6, 0($t5)
 	add	$t5, $t5, $t4
 	j	loop
-loopend:	j	exit
+exit:	j	exit
