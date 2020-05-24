@@ -1,0 +1,44 @@
+`timescale 1ns / 1ns //(1)
+
+module test;         //(2)
+CPU1 top();          //(3)
+
+reg CK;              //(4)
+integer CK_num;      //(5)
+
+initial
+begin
+
+CK = 1'b0;           // Initialization of CK
+CK_num = 1;          //Initialization of CK_num
+`include "/home/student/s1260250/comp/kadai12/CPU1_run3/testfixture.include" //(6)
+                     // Initialization of Memory
+
+# 50 // Update of CK and CK_num //(7)
+# 50 CK = ~CK;
+for( CK_num = 2; CK_num <= 200; CK_num= CK_num +1)
+   begin
+     # 50 CK = ~CK;
+     # 50 CK = ~CK;
+   end
+
+$display("Simulation Results Start");
+$display("PC_out = %h",top.PC_out); //(8)
+$display("RF[r1] = %h",top.Registers.regfile[1]); //(9)
+$display("MEM['h00000000] = %h",Mem.cell['h00000000]); //(10)
+$display("B[0] = MEM['h00005024] = %h",Mem.cell['h00005024]);
+$display("B[1] = MEM['h00005028] = %h",Mem.cell['h00005028]);
+$display("B[2] = MEM['h0000502c] = %h",Mem.cell['h0000502c]);
+$display("B[3] = MEM['h00005030] = %h",Mem.cell['h00005030]);
+$display("B[4] = MEM['h00005034] = %h",Mem.cell['h00005034]);
+$display("B[5] = MEM['h00005038] = %h",Mem.cell['h00005038]);
+$display("B[6] = MEM['h0000503c] = %h",Mem.cell['h0000503c]);
+$display("Simulation Results End");
+$finish;
+end
+
+endmodule
+
+module Mem ();       // (11)
+reg [31:0] cell [0:65535];
+endmodule
