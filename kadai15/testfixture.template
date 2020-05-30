@@ -1,0 +1,19 @@
+
+`timescale 1ns / 1ns
+
+module test;
+
+
+
+
+CPU2 top(); 
+ 
+
+`ifdef verilog
+
+ //please enter any additional verilog stimulus in the /home/student/s1260250/comp/kadai15/testfixture.verilog file
+`include "/home/student/s1260250/comp/kadai15/testfixture.verilog"
+
+`endif
+
+endmodule 
