@@ -1,0 +1,49 @@
+`timescale 1ns / 1ns //(1)
+
+module test;         //(2)
+CPU3 top();          //(3)
+
+reg CK;              //(4)
+integer CK_num;      //(5)
+
+initial
+begin
+
+CK = 1'b0;           // Initialization of CK
+CK_num = 1;          //Initialization of CK_num
+`include "/home/student/s1260250/comp/kadai22/testfixture.include" //(6)
+                     // Initialization of Memory
+
+# 50 // Update of CK and CK_num //(7)
+# 50 CK = ~CK;
+for( CK_num = 2; CK_num <= 200; CK_num= CK_num +1)
+   begin
+     # 50 CK = ~CK;
+     # 50 CK = ~CK;
+   end
+
+$display("Simulation Results Start");
+$display("PC_out = %h",top.PC_out); //(8)
+$display("RF[r1] = %h",top.Registers.regfile[1]); //(9)
+$display("MEM['h00000000] = %h",Mem.cell['h00000000]); //(10)
+$display("RF[s0] = %h",top.Registers.regfile[16]);
+$display("RF[s1] = %h",top.Registers.regfile[17]);
+$display("RF[s2] = %h",top.Registers.regfile[18]);
+$display("RF[s3] = %h",top.Registers.regfile[19]);
+$display("A[0] = MEM['h00005000] = %h",Mem.cell['h00005000]);
+$display("A[1] = MEM['h00005004] = %h",Mem.cell['h00005004]);
+$display("A[2] = MEM['h00005008] = %h",Mem.cell['h00005008]);
+$display("A[3] = MEM['h0000500c] = %h",Mem.cell['h0000500c]);
+$display("A[4] = MEM['h00005010] = %h",Mem.cell['h00005010]);
+$display("A[5] = MEM['h00005014] = %h",Mem.cell['h00005014]);
+$display("A[6] = MEM['h00005018] = %h",Mem.cell['h00005018]);
+$display("Simulation Results End");
+$finish;
+end
+
+endmodule
+
+module Mem ();       // (11)
+reg [31:0] cell [0:65535];
+endmodule
+
