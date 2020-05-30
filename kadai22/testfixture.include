@@ -9,7 +9,7 @@ Mem.cell['h00001010] = 32'h20130000;   // addi $19, $0, 0                 ; 17: 
 Mem.cell['h00001014] = 32'h34045000;   // ori $4, $0, 20480 [A]           ; 18: la $a0, A
 Mem.cell['h00001018] = 32'h8c05501c;   // lw $5, 20508($0) [N]            ; 19: lw $a1, N
 Mem.cell['h0000101c] = 32'h0c000409;   // jal 0x00001024 [sort]           ; 20: jal sort
-Mem.cell['h00001020] = 32'h08000000;   // j 0x00000000 [exit]             ; 21: j exit
+Mem.cell['h00001020] = 32'h08000437;   // j 0x000010dc [exit]             ; 21: j exit
 Mem.cell['h00001024] = 32'h23bdffec;   // addi $29, $29, -20              ; 24: addi $sp, $sp, -20
 Mem.cell['h00001028] = 32'hafbf0010;   // sw $31, 16($29)                 ; 25: sw $ra, 16($sp)    #スタック上に$raを退避
 Mem.cell['h0000102c] = 32'hafb3000c;   // sw $19, 12($29)                 ; 26: sw $s3, 12($sp)    #スタック上に$s3を退避
@@ -56,6 +56,7 @@ Mem.cell['h000010cc] = 32'h8d2a0004;   // lw $10, 4($9)                   ; 77: 
 Mem.cell['h000010d0] = 32'had2a0000;   // sw $10, 0($9)                   ; 78: sw $t2, 0($t1)
 Mem.cell['h000010d4] = 32'had280004;   // sw $8, 4($9)                    ; 79: sw $t0, 4($t1)
 Mem.cell['h000010d8] = 32'h03e00008;   // jr $31                          ; 80: jr $ra
+Mem.cell['h000010dc] = 32'h08000437;   // j 0x000010dc [exit]             ; 82: j exit
 
 // data segment
 Mem.cell['h00005000] = 32'h00000001;

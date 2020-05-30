@@ -16,7 +16,7 @@ CK_num = 1;          //Initialization of CK_num
 
 # 50 // Update of CK and CK_num //(7)
 # 50 CK = ~CK;
-for( CK_num = 2; CK_num <= 200; CK_num= CK_num +1)
+for( CK_num = 2; CK_num <= 10000; CK_num= CK_num +1)
    begin
      # 50 CK = ~CK;
      # 50 CK = ~CK;
